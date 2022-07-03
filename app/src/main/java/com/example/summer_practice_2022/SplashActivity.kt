@@ -35,40 +35,44 @@ class SplashActivity : Activity() {
 //        button = findViewById(R.id.button)
 //        onLoginClick("TEST")
 
-        binding.button.setOnClickListener {
+        with(binding) {
+            button.setOnClickListener {
 
-            val enteredName: String = binding.editText1.toString()
+                val enteredName: String = editText1.toString()
 
-            if (enteredName.isEmpty()) {
-                Toast.makeText(applicationContext,"Введите имя", Toast.LENGTH_SHORT)
-                    .show()
+                if (enteredName.isEmpty()) {
+                    Toast.makeText(applicationContext,"Введите имя", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                val enteredHeight: String = editText2.text.toString()
+
+                if (enteredHeight.isEmpty()) {
+                    Toast.makeText(applicationContext,"Введите рост", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                val enteredWeight: String = editText3.text.toString()
+
+                if (enteredWeight.isEmpty()) {
+                    Toast.makeText(applicationContext,"Введите вес", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                val enteredAge: String = editText4.text.toString()
+
+                if (enteredAge.isEmpty()) {
+                    Toast.makeText(applicationContext,"Введите возраст", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                val calories= 88.36 + (13.4 * editText3.text.toString().toFloat()) + (4.8 * editText2.text.toString().toInt()) - (5.7 * editText4.text.toString().toInt())
+                val name = editText1.text.toString()
+                resultText.text = "$name, Ваша норма потребления калорий: $calories"
+
             }
+        }
 
-            val enteredHeight: String = binding.editText2.text.toString()
 
-            if (enteredHeight.isEmpty()) {
-                Toast.makeText(applicationContext,"Введите рост", Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-            val enteredWeight: String = binding.editText3.text.toString()
-
-            if (enteredWeight.isEmpty()) {
-                Toast.makeText(applicationContext,"Введите вес", Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-            val enteredAge: String = binding.editText4.text.toString()
-
-            if (enteredAge.isEmpty()) {
-                Toast.makeText(applicationContext,"Введите возраст", Toast.LENGTH_SHORT)
-                    .show()
-            }
-            val calories= 88.36 + (13.4 * binding.editText3.text.toString().toFloat()) + (4.8 * binding.editText2.text.toString().toInt()) - (5.7 * binding.editText4.text.toString().toInt())
-            val name = binding.editText1.text.toString()
-            binding.resultText.text = "$name, Ваша норма потребления калорий: $calories"
-
-            }
 
         }
 //
